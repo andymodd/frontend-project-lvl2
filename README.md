@@ -25,3 +25,6 @@ https://asciinema.org/a/499250
 
 Step 6: Cli program can print difference in plain format
 https://asciinema.org/a/499253
+
+Step 7: Cli program can print difference in json format
+https://asciinema.org/a/499254
