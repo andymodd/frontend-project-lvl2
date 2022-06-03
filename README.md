@@ -6,3 +6,6 @@ https://asciinema.org/a/498335
 
 Step 2: Add two arguments and format option to this program
 https://asciinema.org/a/498346
+
+Step 3: Cli program can differ two flat files
+https://asciinema.org/a/499039
