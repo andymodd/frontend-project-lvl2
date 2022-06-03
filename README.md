@@ -19,3 +19,6 @@ https://asciinema.org/a/499039
 
 Step 4: Cli program can differ two flat yml files
 https://asciinema.org/a/499248
+
+Step 5: Cli program can differ two nested json and yml files
+https://asciinema.org/a/499250
