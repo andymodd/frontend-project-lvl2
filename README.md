@@ -22,3 +22,6 @@ https://asciinema.org/a/499248
 
 Step 5: Cli program can differ two nested json and yml files
 https://asciinema.org/a/499250
+
+Step 6: Cli program can print difference in plain format
+https://asciinema.org/a/499253
