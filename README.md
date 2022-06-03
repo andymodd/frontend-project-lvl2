@@ -16,3 +16,6 @@ https://asciinema.org/a/498346
 
 Step 3: Cli program can differ two flat files
 https://asciinema.org/a/499039
+
+Step 4: Cli program can differ two flat yml files
+https://asciinema.org/a/499248
