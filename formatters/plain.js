@@ -1,5 +1,17 @@
 import { isObject } from '../src/utils.js';
 
+const printValue = (value) => {
+  if (isObject(value)) {
+    return '[complex value]';
+  }
+  switch (typeof value) {
+    case 'string':
+      return `'${value}'`;
+    default:
+      return value;
+  }
+};
+
 const plain = (difference, nameObject = '') => {
   const sorted = difference.sort(({ name: key1 }, { name: key2 }) => {
     if (key1 < key2) {
@@ -12,8 +24,8 @@ const plain = (difference, nameObject = '') => {
   const result = sorted.flatMap((object) => {
     const { name } = object;
     const printedName = nameObject.length > 0 ? `${nameObject}.${name}` : name;
-    const previous = typeof object.previous === 'string' ? `'${object.previous}'` : isObject(object.previous) ? '[complex value]' : object.previous;
-    const value = typeof object.value === 'string' ? `'${object.value}'` : isObject(object.value) ? '[complex value]' : object.value;
+    const previous = printValue(object.previous);
+    const value = printValue(object.value);
     switch (object.status) {
       case 'added':
         return `Property '${printedName}' was added with value: ${value}`;
