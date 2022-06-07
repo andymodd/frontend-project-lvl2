@@ -1,5 +1,5 @@
-import { isObject } from '../src/utils.js';
 import _ from 'lodash';
+import { isObject } from '../src/utils.js';
 
 const iter = (currentValue, indentSize, depth) => {
   if (!isObject(currentValue)) {
@@ -19,7 +19,7 @@ const iter = (currentValue, indentSize, depth) => {
 };
 
 const stylish = (keys, depth = 1) => {
-  const sortedKeys = _.sortBy(keys, (object) => { return object.name });
+  const sortedKeys = _.sortBy(keys, (object) => object.name);
   const indentSize = 4;
   const currentIndent = depth * indentSize;
   const bracketIndent = currentIndent - indentSize;

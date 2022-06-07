@@ -1,5 +1,5 @@
-import { isObject } from '../src/utils.js';
 import _ from 'lodash';
+import { isObject } from '../src/utils.js';
 
 const printValue = (value) => {
   if (isObject(value)) {
@@ -14,7 +14,7 @@ const printValue = (value) => {
 };
 
 const plain = (difference, nameObject = '') => {
-  const sorted = _.sortBy(difference, (object) => { return object.name});
+  const sorted = _.sortBy(difference, (object) => object.name);
   const result = sorted.flatMap((object) => {
     const { name } = object;
     const printedName = nameObject.length > 0 ? `${nameObject}.${name}` : name;
