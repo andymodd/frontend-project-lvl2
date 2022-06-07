@@ -1,42 +1,23 @@
 import { getFixturePath, readFile } from '../src/utils.js';
 import gendiff from '../src/index.js';
 
-let json1;
-let json2;
-let yaml1;
-let yaml2;
-
-beforeEach(() => {
-  json1 = getFixturePath('file1.json');
-  json2 = getFixturePath('file2.json');
-  yaml1 = getFixturePath('file1.yml');
-  yaml2 = getFixturePath('file2.yml');
-});
-
-test('test gendiff function for json files', () => {
-  json1 = getFixturePath('file1.json');
-  json2 = getFixturePath('file2.json');
+test('test gendiff function with default stylish format', () => {
+  const json = getFixturePath('file1.json');
+  const yaml = getFixturePath('file2.yml');
   const expected = readFile(getFixturePath('expected'));
-  expect(gendiff(json1, json2)).toBe(expected);
-});
-
-test('test gendiff function for yml files', () => {
-  yaml1 = getFixturePath('file1.yml');
-  yaml2 = getFixturePath('file2.yml');
-  const expected = readFile(getFixturePath('expected'));
-  expect(gendiff(yaml1, yaml2)).toBe(expected);
+  expect(gendiff(json, yaml)).toBe(expected);
 });
 
 test('test formatter plain', () => {
-  json1 = getFixturePath('file1.json');
-  json2 = getFixturePath('file2.json');
+  const json = getFixturePath('file1.json');
+  const yaml = getFixturePath('file2.yml');
   const plainExpected = readFile(getFixturePath('plain'));
-  expect(gendiff(json1, json2, 'plain')).toBe(plainExpected);
+  expect(gendiff(json, yaml, 'plain')).toBe(plainExpected);
 });
 
 test('test formatter json', () => {
-  json1 = getFixturePath('file1.json');
-  json2 = getFixturePath('file2.json');
+  const json = getFixturePath('file1.json');
+  const yaml = getFixturePath('file2.yml');
   const jsonExpected = readFile(getFixturePath('json'));
-  expect(gendiff(json1, json2, 'json')).toBe(jsonExpected);
+  expect(gendiff(json, yaml, 'json')).toBe(jsonExpected);
 });
