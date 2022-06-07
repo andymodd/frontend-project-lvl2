@@ -9,32 +9,23 @@ const compareObjects = (object1, object2) => {
   const intersection = _.intersection(keys1, keys2);
   const keys = _.uniq([...keys1, ...keys2]);
 
-  const difference = keys.reduce((acc, key) => {
-    const diff = {};
-    diff.name = key;
+  const difference = keys.map((key) => {
     const isObject1 = isObject(object1[key]);
     const isObject2 = isObject(object2[key]);
     if (intersection.includes(key)) {
       if (isObject1 && isObject2) {
-        diff.children = compareObjects(object1[key], object2[key]);
-      } else if (object1[key] === object2[key]) {
-        diff.status = 'unchanged';
-        diff.value = object1[key];
-      } else {
-        diff.status = 'changed';
-        diff.previous = isObject1 ? _.cloneDeep(object1[key]) : object1[key];
-        diff.value = isObject2 ? _.cloneDeep(object2[key]) : object2[key];
+        return { name: key, children: compareObjects(object1[key], object2[key]) };
+      } if (object1[key] === object2[key]) {
+        return { name: key, status: 'unchanged', value: object1[key] };
       }
-    } else if (keys1.includes(key)) {
-      diff.status = 'deleted';
-      diff.value = isObject1 ? _.cloneDeep(object1[key]) : object1[key];
-    } else {
-      diff.status = 'added';
-      diff.value = isObject2 ? _.cloneDeep(object2[key]) : object2[key];
+      return {
+        name: key, status: 'changed', value: isObject2 ? _.cloneDeep(object2[key]) : object2[key], previous: isObject1 ? _.cloneDeep(object1[key]) : object1[key],
+      };
+    } if (keys1.includes(key)) {
+      return { name: key, status: 'deleted', value: isObject1 ? _.cloneDeep(object1[key]) : object1[key] };
     }
-    acc.push(diff);
-    return acc;
-  }, []);
+    return { name: key, status: 'added', value: isObject2 ? _.cloneDeep(object2[key]) : object2[key] };
+  });
   return difference;
 };
 
