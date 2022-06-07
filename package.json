@@ -4,7 +4,7 @@
   "description": "cli program for differing two files",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest"
   },
   "type": "module",
   "bin": {
