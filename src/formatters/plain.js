@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { isObject } from '../src/utils.js';
+import { isObject } from '../utils.js';
 
 const printValue = (value) => {
   if (isObject(value)) {
