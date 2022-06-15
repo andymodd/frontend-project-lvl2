@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { isObject } from './utils.js';
+import isObject from './utils.js';
 
 const compareObjects = (object1, object2) => {
   const keys1 = Object.keys(object1);

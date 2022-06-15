@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { isObject } from '../utils.js';
+import isObject from '../utils.js';
 
 const iter = (currentValue, indentSize, depth) => {
   if (!isObject(currentValue)) {
